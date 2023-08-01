@@ -29,6 +29,10 @@ RUN apt-get update && \
 # create user
 RUN groupadd --gid $USER_GID $USERNAME \
     && useradd --uid $USER_UID --gid $USER_GID -m $USERNAME
+
+RUN mkdir -p /app
+RUN chown -R $USERNAME:$USERNAME /app
+
 # set user
 USER $USERNAME
 
@@ -40,6 +44,7 @@ ENV HF_HOME=/home/$USERNAME/.cache/huggingface
 SHELL ["/bin/bash", "-c"]
 
 # app
+
 WORKDIR /app/
 RUN git clone https://github.com/kohya-ss/sd-scripts.git
 WORKDIR /app/sd-scripts

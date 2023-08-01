@@ -41,11 +41,11 @@ accelerate launch --num_cpu_threads_per_process 1 train_network.py \
   --output_name="$OUTPUT_NAME" \
   --dataset_config="/workspace/dataset_config.toml" \
   --train_batch_size=1 \
-  --max_train_epochs=5 \
+  --max_train_epochs=40 \
   --resolution="512,512" \
   --optimizer_type="AdamW8bit" \
   --learning_rate=1e-4 \
-  --network_dim=128 \
+  --network_dim=64 \
   --network_alpha=64 \
   --enable_bucket \
   --bucket_no_upscale \
